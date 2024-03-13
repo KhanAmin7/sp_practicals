@@ -1,0 +1,15 @@
+
+
+Apple 
+banana
+icecream
+banana
+icecream
+Apple
+
+
+
+
+
+sort file | sed '$!N; /^\(.*\)\n\1$/!P; D'
+

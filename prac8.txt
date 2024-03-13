@@ -1,0 +1,15 @@
+#!/bin/bash
+echo "List of processes?(y/n)"
+read -r list
+if [ "$list"="y" ]; then
+ps -l
+fi
+echo "Enter the pid of which you want to change the priority:"
+read -r pid
+echo "old priority"
+ps -o ni "$pid"
+echo "enter new priority"
+read -r newpid
+renice "$newpid" "$pid"
+echo "new pid is:"
+ps -o ni "$pid"

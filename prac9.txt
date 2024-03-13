@@ -1,0 +1,38 @@
+#!/bin/bash
+file="cat.txt"
+
+echo "File Access:"
+
+file $file
+
+if [ -e "$file" ]; then
+echo "file exists"
+else 
+echo "file doesnt exist"
+fi 
+
+if [ -r "$file" ]; then 
+ echo "file has read access"
+else 
+ echo "file doesnt have read access"
+fi
+
+if [ -w "$file" ]; then 
+ echo "file has write access"
+else 
+ echo "file doesnt have write access"
+fi
+
+if [ -x "$file" ]; then 
+ echo "file has execute access"
+else 
+ echo "file doesnt have execute access"
+fi
+
+if [ -f "$file" ]; then 
+ echo "file is a file"
+elif [ -d "$file" ]; then 
+ echo "file is directory"
+else 
+ echo "file is neither"
+fi

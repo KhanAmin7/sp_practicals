@@ -1,0 +1,61 @@
+#!/bin/bash
+
+while true; do
+    echo "Select an option:"
+    echo "1) Display all usernames"
+    echo "2) Display usernames for a specific group"
+    echo "3) Show who is logged in (paged)"
+    echo "4) Show who am i"
+    echo "5) Show currently logged in users"
+    echo "6) Show hostname"
+    echo "7) Show user and group information"
+    echo "8) Show who is logged in and what they are doing"
+    echo "9) Show last logged in users"
+    echo "10) Show last system logins"
+    echo "11) Exit"
+
+    read -p "Enter your choice: " choice
+
+    case $choice in
+        1)
+            echo "All usernames:"
+            cut -d ":" -f1 /etc/passwd | sort
+            ;;
+        2)
+            echo "Enter a particular group name:"
+            read -r group_name
+            grep "$group_name" /etc/passwd | cut -d ":" -f1
+            ;;
+        3)
+            who | more
+            ;;
+        4)
+            who am i
+            ;;
+        5)
+            users
+            ;;
+        6)
+            hostname
+            ;;
+        7)
+            id
+            ;;
+        8)
+            w
+            ;;
+        9)
+            last
+            ;;
+        10)
+            last log
+            ;;
+        11)
+            echo "Exiting..."
+            exit 0
+            ;;
+        *)
+            echo "Invalid choice. Please enter a number between 1 and 11."
+            ;;
+    esac
+done

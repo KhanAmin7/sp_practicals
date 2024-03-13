@@ -1,0 +1,11 @@
+#!/bin/bash
+
+file="demo1"
+echo "number of characters in a file:"
+wc -c < "$file"
+echo "number of words in a file:"
+wc -w < "$file"
+echo "number of lines in a file:"
+wc -l < "$file"
+echo "number of line containing 'hi' in the file"
+grep -c "hi" "$file"
